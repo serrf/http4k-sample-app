@@ -1,0 +1,47 @@
+#!/bin/bash -x
+# script to be run after deployment install
+
+#### variables
+
+base_path="/srv/www/${DEPLOYMENT_GROUP_NAME}"
+deploy_path=$(readlink "${base_path}/deploy")
+
+
+#### functions
+
+change_current_link()
+{
+	
+	rm -f "${base_path}/current";ln -s "${deploy_path}" "${base_path}/current" || $?
+}
+
+create_htdocs()
+{
+	if [ ! -L "${base_path}/htdocs" ]
+	then
+		ln -s "${base_path}/current/public/" "${base_path}/htdocs" || $?
+	fi
+}
+
+remove_old_releases()
+{
+	find "${base_path}/releases" -maxdepth 1 -type d -not -wholename "${deploy_path}" -not -wholename "${base_path}/releases" -exec rm -rf {} \; > "${base_path}/debug.txt"
+}
+
+remove_deploy()
+{
+	rm -f "${base_path}/deploy" || $?
+}
+
+restart_apache()
+{
+	service httpd restart || $?
+}
+
+#### main
+
+change_current_link
+remove_old_releases
+remove_deploy
+create_htdocs
+# restart_apache
