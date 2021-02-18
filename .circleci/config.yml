@@ -12,7 +12,7 @@ jobs:
 
       - run:
           name: install amazon java 11
-          command: sudo yum install java-11-amazon-corretto
+          command: yum install java-11-amazon-corretto
 
       - run: 
           name: Display versions
