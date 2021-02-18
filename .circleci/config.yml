@@ -20,7 +20,7 @@ jobs:
 
       - run:
           name: install which and unzip
-          command: yum install which unzip -y
+          command: yum install which unzip zip -y
 
       - run:
           name: intall sdk manager
