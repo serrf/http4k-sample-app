@@ -31,6 +31,13 @@ jobs:
           command: | 
             source "/root/.sdkman/bin/sdkman-init.sh"
             sdk install kotlin
+
+      - checkout
+
+      -run:
+        name: build
+        command: ./gradlew build
+          
       
       
 workflows:
