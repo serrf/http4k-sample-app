@@ -34,9 +34,9 @@ jobs:
 
       - checkout
 
-      -run:
-        name: build
-        command: ./gradlew build
+      - run:
+          name: build
+          command: ./gradlew build
           
       
       
