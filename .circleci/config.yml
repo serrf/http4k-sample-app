@@ -28,7 +28,7 @@ jobs:
 
       - run: 
           name: install sdk manager
-          command: sudo /root/.sdkman/bin/sdkman-init.sh
+          command: source "/root/.sdkman/bin/sdkman-init.sh" 
 
       - run:
           name: install kotlin
