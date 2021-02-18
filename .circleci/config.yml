@@ -6,14 +6,10 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: amazonlinux:2.0.20210126.0
+     - image: amazoncorretto:11
 
     steps:
-
-      - run:
-          name: install amazon java 11
-          command: yum install java-11-amazon-corretto
-
+      
       - run: 
           name: Display versions
           command: java -version
