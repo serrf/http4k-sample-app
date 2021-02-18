@@ -37,6 +37,10 @@ jobs:
       - run:
           name: build
           command: ./gradlew build
+
+      - run:
+          name: run
+          command: ./gradlew run
           
       
       
