@@ -19,8 +19,8 @@ jobs:
           command: java -version
 
       - run:
-          name: install which
-          command: yum install which -y
+          name: install which and unzip
+          command: yum install which unzip -y
 
       - run:
           name: intall sdk manager
