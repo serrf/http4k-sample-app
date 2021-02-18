@@ -41,6 +41,10 @@ jobs:
       - run:
           name: run
           command: nohup ./gradlew run >Output.log 2>&1 &
+
+      - run:
+          name: test
+          command: ./gradlew test
           
       
       
