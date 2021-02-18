@@ -23,8 +23,12 @@ jobs:
           command: yum install which unzip zip -y
 
       - run:
-          name: install sdk manager
+          name: download sdk manager
           command: curl -s https://get.sdkman.io | bash
+
+      - run: 
+          name: install sdk manager
+          command: /root/.sdkman/bin/sdkman-init.sh
 
       - run:
           name: install kotlin
