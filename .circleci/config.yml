@@ -16,7 +16,7 @@ jobs:
       
       - run:
           name: install unzip
-          command: yum install unzip
+          command: yum install unzip -y
 
       - run:
           name: intall sdk manager
