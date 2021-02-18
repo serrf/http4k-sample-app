@@ -6,17 +6,17 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-     - image: amazoncorretto:11
+     - image: amazonlinux:2.0.20210126.0
 
     steps:
       
+      - run:
+          name: install corretto 11
+          command: yum install java-11-amazon-corretto-headless -y
+
       - run: 
           name: Display versions
-          command: java -version
-      
-      - run:
-          name: install unzip
-          command: yum install unzip -y
+          command: java -version      
 
       - run:
           name: intall sdk manager
