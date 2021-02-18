@@ -16,7 +16,11 @@ jobs:
 
       - run: 
           name: Display versions
-          command: java -version      
+          command: java -version
+
+      - run:
+          name: install which
+          command: yum install which -y
 
       - run:
           name: intall sdk manager
