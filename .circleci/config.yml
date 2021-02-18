@@ -28,14 +28,11 @@ jobs:
 
       - run: 
           name: install sdk manager
-          command: source "/root/.sdkman/bin/sdkman-init.sh" 
-
-      - run:
-          name: install kotlin
-          command: sdk install kotlin
-
+          command: | 
+            source "/root/.sdkman/bin/sdkman-init.sh"
+            sdk install kotlin
       
-
+      
 workflows:
   version: 2.1
   build-test:
