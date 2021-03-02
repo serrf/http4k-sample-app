@@ -19,7 +19,7 @@ jobs:
           command: java -version
 
       - run:
-          name: install which, unzip and sudo
+          name: install which, unzip, sudo and tar
           command: yum install which unzip zip sudo tar -y
 
       - run:
@@ -56,6 +56,10 @@ jobs:
     docker:
       - image: amazonlinux:2.0.20210126.0    
     steps:
+      - run:
+          name: install tar
+          command: yum install tar -y
+
       - attach_workspace:
           at: ~/
 
