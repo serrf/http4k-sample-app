@@ -3,7 +3,7 @@ version: 2.1
 
 # Run the welcome/run job in its own container
 jobs:
-  build:
+  build-test:
     working_directory: ~/code
     docker:
      - image: amazonlinux:2.0.20210126.0
@@ -45,11 +45,30 @@ jobs:
       - run:
           name: test
           command: ./gradlew test
+
+      - persist_to_workspace:
+              root: ~/
+              paths:
+                    - code
           
-      
-      
+  deploy:
+    working_directory: ~/
+    docker:
+      - image: amazonlinux:2.0.20210126.0    
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run:
+          name: temp 
+          command: ls -li  
+
 workflows:
   version: 2.1
-  build-test:
+  build-test-deploy:
     jobs:
-      - build
+      - build-test
+      - deploy:
+          requires:
+            - build-test
+
