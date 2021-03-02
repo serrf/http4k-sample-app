@@ -57,8 +57,8 @@ jobs:
       - image: amazonlinux:2.0.20210126.0    
     steps:
       - run:
-          name: install tar
-          command: yum install tar -y
+          name: install tar, gzip
+          command: yum install tar gzip -y
 
       - attach_workspace:
           at: ~/
