@@ -63,6 +63,10 @@ jobs:
       - attach_workspace:
           at: ~/
 
+      - add_ssh_keys:
+          fingerprints:
+            - "bd:65:ce:0b:f9:46:7c:4f:e9:b4:3a:0b:b0:39:17:08"
+
       - run:
           name: temp 
           command: ls -li ~/code/app/build/distributions/
