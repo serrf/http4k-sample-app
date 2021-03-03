@@ -70,7 +70,7 @@ jobs:
       - run:
           name: Upload to server via SCP
           command: |
-            scp -o StrictHostKeyChecking=no -pr -o 'ProxyJump ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com' ~/code/app/build/distributions/app.tar $SSH_USER@$SSH_HOST:/srv/www/http4k-sample-app/htdocs/ -y
+            scp -y -o StrictHostKeyChecking=no -pr -o 'ProxyJump ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com' ~/code/app/build/distributions/app.tar $SSH_USER@$SSH_HOST:/srv/www/http4k-sample-app/htdocs/
       - run:
           name: temp 
           command: ls -li ~/code/app/build/distributions/
