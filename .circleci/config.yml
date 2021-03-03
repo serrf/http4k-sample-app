@@ -58,7 +58,7 @@ jobs:
     steps:
       - run:
           name: install tar, gzip
-          command: yum install tar gzip -y
+          command: yum install tar gzip scp -y
 
       - attach_workspace:
           at: ~/
