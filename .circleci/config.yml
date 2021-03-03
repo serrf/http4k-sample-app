@@ -68,6 +68,11 @@ jobs:
             - "bd:65:ce:0b:f9:46:7c:4f:e9:b4:3a:0b:b0:39:17:08"
 
       - run:
+          name: fix ssh config for all hosts
+          command: echo 'Host *\n IdentitiesOnly yes\n IdentityFile /root/.ssh/id_rsa_bd65ce0bf9467c4fe9b43a0bb0391708'\n' > ~/.ssh/config
+
+
+      - run:
           name: temp 
           command: cat ~/.ssh/config
 
