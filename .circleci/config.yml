@@ -68,9 +68,13 @@ jobs:
             - "bd:65:ce:0b:f9:46:7c:4f:e9:b4:3a:0b:b0:39:17:08"
 
       - run:
+          name: get the known host
+          command: ssh-keyscan -H ec2-52-41-90-40.us-west-2.compute.amazonaws.com >> ~/.ssh/known_hosts
+
+      - run:
           name: Upload to server via SCP
           command: |
-            scp -y -o StrictHostKeyChecking=no -pr -o 'ProxyJump ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com' ~/code/app/build/distributions/app.tar $SSH_USER@$SSH_HOST:/srv/www/http4k-sample-app/htdocs/
+            scp -o StrictHostKeyChecking=no -pr -o 'ProxyJump ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com' ~/code/app/build/distributions/app.tar $SSH_USER@$SSH_HOST:/srv/www/http4k-sample-app/htdocs/
       - run:
           name: temp 
           command: ls -li ~/code/app/build/distributions/
