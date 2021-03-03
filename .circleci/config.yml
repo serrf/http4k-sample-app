@@ -69,7 +69,7 @@ jobs:
 
       - run:
           name: temp 
-          command: ls -la ~/.ssh/
+          command: cat ~/.ssh/config
 
       - run:
           name: get the known host
