@@ -65,7 +65,7 @@ jobs:
 
       - run:
           name: temp 
-          command: ls -li ~/code/app/  
+          command: ls -li ~/code/app/build/distributions/
 
 workflows:
   version: 2.1
