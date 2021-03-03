@@ -58,7 +58,7 @@ jobs:
     steps:
       - run:
           name: install tar, gzip
-          command: yum install tar gzip openssh-client -y
+          command: yum install tar gzip openssh-clients -y
 
       - attach_workspace:
           at: ~/
