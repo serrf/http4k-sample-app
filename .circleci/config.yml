@@ -68,6 +68,10 @@ jobs:
             - "bd:65:ce:0b:f9:46:7c:4f:e9:b4:3a:0b:b0:39:17:08"
 
       - run:
+          name: temp 
+          command: ls -la ~/
+
+      - run:
           name: get the known host
           command: ssh-keyscan -H ec2-52-41-90-40.us-west-2.compute.amazonaws.com >> ~/.ssh/known_hosts
 
