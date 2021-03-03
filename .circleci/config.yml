@@ -69,7 +69,7 @@ jobs:
 
       - run:
           name: fix ssh config for all hosts
-          command: echo "Host *\n IdentitiesOnly yes\n IdentityFile /root/.ssh/id_rsa_bd65ce0bf9467c4fe9b43a0bb0391708\n" > ~/.ssh/config
+          command: printf "Host *\n IdentitiesOnly yes\n IdentityFile /root/.ssh/id_rsa_bd65ce0bf9467c4fe9b43a0bb0391708\n" > ~/.ssh/config
 
 
       - run:
