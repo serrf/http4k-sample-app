@@ -83,10 +83,10 @@ jobs:
       - run:
           name: ssh to server
           command: |
-            ssh -J ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com ec2-user@10.0.1.5
+            ssh -J ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com ec2-user@10.0.1.5 bach -c "
             cd /srv/www/http4k-sample-app/htdocs
             ls -li
-            exit
+            exit "
             
       - run:
           name: temp 
