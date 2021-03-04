@@ -77,6 +77,10 @@ jobs:
           command: cat ~/.ssh/config
 
       - run:
+          name: check key
+          command: ls -la ~/.ssh/
+
+      - run:
           name: get the known host
           command: ssh-keyscan -H ec2-52-41-90-40.us-west-2.compute.amazonaws.com >> ~/.ssh/known_hosts
 
