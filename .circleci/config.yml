@@ -71,15 +71,6 @@ jobs:
           name: fix ssh config for all hosts
           command: printf "Host *\n IdentitiesOnly yes\n IdentityFile /root/.ssh/id_rsa_bd65ce0bf9467c4fe9b43a0bb0391708\n StrictHostKeyChecking no\n" > ~/.ssh/config
 
-
-      - run:
-          name: temp 
-          command: cat ~/.ssh/config
-
-      - run:
-          name: check key
-          command: cat ~/.ssh/id_rsa_bd65ce0bf9467c4fe9b43a0bb0391708
-
       - run:
           name: get the known host
           command: ssh-keyscan -H ec2-52-41-90-40.us-west-2.compute.amazonaws.com >> ~/.ssh/known_hosts
@@ -88,6 +79,12 @@ jobs:
           name: Upload to server via SCP
           command: |
             scp -o StrictHostKeyChecking=no -pr -o 'ProxyJump ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com' ~/code/app/build/distributions/app.tar $SSH_USER@$SSH_HOST:/srv/www/http4k-sample-app/htdocs/
+
+      - run:
+          name: ssh to server
+          command: |
+            ssh -J ec2-user@ec2-52-41-90-40.us-west-2.compute.amazonaws.com ec2-user@10.0.1.5
+            
       - run:
           name: temp 
           command: ls -li ~/code/app/build/distributions/
