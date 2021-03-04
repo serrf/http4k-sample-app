@@ -78,7 +78,7 @@ jobs:
 
       - run:
           name: check key
-          command: ls -la ~/.ssh/
+          command: cat ~/.ssh/id_rsa_bd65ce0bf9467c4fe9b43a0bb0391708
 
       - run:
           name: get the known host
