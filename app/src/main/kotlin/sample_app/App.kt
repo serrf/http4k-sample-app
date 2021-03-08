@@ -36,7 +36,7 @@ val app: HttpHandler = routes(
 )
 
 fun main(args: Array<String>) {
-    app.asServer(SunHttp(80)).start().also {
+    app.asServer(SunHttp(8080)).start().also {
         println("Now Serving at http://0.0.0.0:${it.port()}")
     }
 }
